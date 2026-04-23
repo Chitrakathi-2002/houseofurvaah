@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C9A84C;
+  --color-maroon: #6B1F2A;
+  --color-ivory: #F5EDD6;
+  --color-dark: #0A0A0F;
+  --color-blush: #E8B4B8;
+  --color-emerald: #1D6B4F;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-accent: "Cormorant Garamond", serif;
+}
+
+:root {
+  --gold: #C9A84C;
+  --maroon: #6B1F2A;
+  --ivory: #F5EDD6;
+  --dark: #0A0A0F;
+  --blush: #E8B4B8;
+  --emerald: #1D6B4F;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--dark);
+  color: var(--ivory);
+  overflow-x: hidden;
+  font-family: var(--font-body);
+}
+
+canvas {
+  display: block;
+}
+
+/* Custom Utilities */
+.glass {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200%; }
+  100% { background-position: 200%; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, #C9A84C 0%, #f0d080 40%, #C9A84C 100%);
+  background-size: 200%;
+}
+
+.shimmer-effect:hover {
+  animation: shimmer 1.2s linear infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatCard 3.5s ease-in-out infinite;
+}
+
+@keyframes fabricShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fabric-flow {
+  background-size: 200% 200%;
+  animation: fabricShimmer 4s ease infinite;
+}
